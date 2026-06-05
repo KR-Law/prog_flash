@@ -50,16 +50,24 @@ source = { editable = "." }
 [package.dev-dependencies]
 dev = [
     { name = "pytest" },
+    { name = "ruff" },
 ]
 lint = [
     { name = "ruff" },
+]
+test = [
+    { name = "pytest" },
 ]
 
 [package.metadata]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9.0.3" }]
+dev = [
+    { name = "pytest", specifier = ">=9.0.3" },
+    { name = "ruff", specifier = ">=0.15.15" },
+]
 lint = [{ name = "ruff", specifier = ">=0.15.15" }]
+test = [{ name = "pytest", specifier = ">=9.0.3" }]
 
 [[package]]
 name = "pygments"
