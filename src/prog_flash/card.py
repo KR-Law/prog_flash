@@ -16,13 +16,16 @@
 # along with prog_flash.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from prog_flash.card import Card
+class Card:
+    def __init__(self, front: str, back: str):
+        self.front: str = front
+        self.back: str = back
 
+    def get_command(self):
+        print('Enter command type "help" for help.')
+        command: str = input()
+        return command
 
-def main() -> None:
-    card = Card("front", "back")
-    card.view_card()
-
-
-if __name__ == "__main__":
-    main()
+    def view_card(self):
+        print(self.front)
+        self.get_command()

@@ -15,14 +15,3 @@
 # You should have received a copy of the GNU General Public License
 # along with prog_flash.  If not, see <https://www.gnu.org/licenses/>.
 
-
-from prog_flash.card import Card
-
-
-def main() -> None:
-    card = Card("front", "back")
-    card.view_card()
-
-
-if __name__ == "__main__":
-    main()

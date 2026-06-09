@@ -1,0 +1,41 @@
+{
+    "decks": [
+        {
+            "id": 1,
+            "name": "Python Basics Study Deck",
+            "cards": {
+                "cards": [
+                    {
+                        "id": 1,
+                        "front": "argument",
+                        "back": "A value passed to a function (or method) when calling the function.",
+                        "number_correct": 0,
+                        "last visited": "2026-06-07 14:30:00"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "name": "JavaScript Study Deck",
+            "cards": {
+                "cards": [
+                    {
+                        "id": 1,
+                        "front": "argument",
+                        "back": "A value passed to a function (or method) when calling the function.",
+                        "number_correct": 0,
+                        "last visited": "2026-06-07 14:30:00"
+                    },
+                    {
+                        "id": 2,
+                        "front": "Callback Functions",
+                        "back": "A Callback function is a function passed as an argument to another function, to be executed at a later time.",
+                        "number_correct": 0,
+                        "last visited": "2026-06-07 14:30:00"
+                    }
+                ]
+            }
+        }
+    ]
+}

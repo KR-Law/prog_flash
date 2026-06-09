@@ -16,6 +16,15 @@ This project provides a robust framework for spaced repetition or simple quiz-st
 *   **Structured Learning:** Organize multiple sets of cards for different subjects or topics within a single application.
 *   **CLI Interface:** Designed for quick and seamless use directly in the terminal environment.
 
+## Roadmap / Backlog
+- [ ] Core Engine: Data structures and scoring logic.
+- [ ] File I/O: Load and save flashcards from/to JSON.
+- [ ] Simple CLI: Text-based interface for learning.
+- [ ] **Future Enhancements (UI/Mobile):**
+    - [ ] Implement TUI (Curses) for better visual layout.
+    - [ ] Migrate to mobile framework (Flet/Kivy).
+    - [ ] Add coordinate-based UI for touch support.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -67,6 +76,8 @@ prog-flash
 
 Follow the on-screen prompts to create a new flashcard deck or start reviewing existing ones.
 
+
 ---
 *Developed by Kyle Law | Built with Python.*
+
 

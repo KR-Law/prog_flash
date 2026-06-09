@@ -16,13 +16,24 @@
 # along with prog_flash.  If not, see <https://www.gnu.org/licenses/>.
 
 
+from pytest import MonkeyPatch, CaptureFixture
 from prog_flash.card import Card
 
 
-def main() -> None:
-    card = Card("front", "back")
-    card.view_card()
+class TestCard:
+    def setup_method(self):
+        self.front_data = "Front of Card"
+        self.back_data = "Back of Card"
+        self.card = Card(self.front_data, self.back_data)
 
+    def test_card_initialization(self):
+        assert self.card.front == "Front of Card"
+        assert self.card.back == "Back of Card"
 
-if __name__ == "__main__":
-    main()
+    def test_view_card_side(
+        self, capsys: CaptureFixture, monkeypatch: MonkeyPatch
+    ) -> None:
+        monkeypatch.setattr("builtins.input", lambda: None)
+        self.card.view_card()
+        out, _ = capsys.readouterr()
+        assert out == f'{self.card.front}\nEnter command type "help" for help.\n'
