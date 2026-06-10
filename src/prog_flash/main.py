@@ -19,9 +19,20 @@
 from prog_flash.card import Card
 
 
+def process_card_command(command, card: Card):
+    match command:
+        case "f":
+            card.flip_card()
+        case "q":
+            print("Good job studying")
+            exit()
+
+
 def main() -> None:
-    card = Card("front", "back")
-    card.view_card()
+    card = Card("Front of card", "Back of Card")
+    print('Enter command type "help" for help.')
+    command = input()
+    process_card_command(command, card)
 
 
 if __name__ == "__main__":

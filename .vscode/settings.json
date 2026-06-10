@@ -1,6 +1,9 @@
 {
-    "python.REPL.enableREPLSmartSend": false, 
-    "python.analysis.extraPaths": [
-        "./src/prog_flash"
-    ]
+    "python.REPL.enableREPLSmartSend": false,
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    
 }
