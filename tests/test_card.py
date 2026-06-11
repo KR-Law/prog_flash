@@ -31,8 +31,8 @@ class TestCard:
         self.card = Card(**db_row)
 
     def test_card_initialization(self):
-        assert self.card.front == "Front of Card"
-        assert self.card.back == "Back of Card"
+        assert self.card.front == "What is Python?"
+        assert self.card.back == "A programming language."
 
     def test_view_card(self, capsys: CaptureFixture, monkeypatch: MonkeyPatch) -> None:
         monkeypatch.setattr("builtins.input", lambda: None)
