@@ -25,9 +25,9 @@ def test_flip_card(
     card: Card,
     capsys: pytest.CaptureFixture,
 ) -> None:
-    assert study_session.disp_front
+    assert study_session.is_front()
     study_session.flip_card()
-    assert not study_session.disp_front
+    assert not study_session.is_front()
     card.view_card(study_session.is_front())
     out, _ = capsys.readouterr()
     assert out == f"{card.back}\n", "Should show back text after flipping."

@@ -6,27 +6,11 @@ from typing import TypedDict
 
 import pytest
 from prog_flash.card import Card
-from prog_flash.game import StudySessionController
 
 
 class CardDBRow(TypedDict):
     front: str
     back: str
-
-
-@pytest.fixture
-def card() -> Card:
-    db_row: CardDBRow = {
-        "front": "What is Python?",
-        "back": "A programming language.",
-    }
-    retrieved_card = Card(**db_row)
-    return retrieved_card
-
-
-@pytest.fixture
-def study_session() -> StudySessionController:
-    return StudySessionController()
 
 
 def test_card_initialization(card: Card) -> None:
@@ -36,15 +20,26 @@ def test_card_initialization(card: Card) -> None:
 
 def test_view_card(
     card: Card,
-    study_session: StudySessionController,
     capsys: pytest.CaptureFixture,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.setattr("builtins.input", lambda: None)
 
-    card.view_card(study_session.is_front())
+    card.view_card(is_front=True)
     out, _ = capsys.readouterr()
     assert out == f"{card.front}\n", "Should show front text on initial view."
+
+
+def test_view_flipped_card(
+    card: Card,
+    capsys: pytest.CaptureFixture,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr("builtins.input", lambda: None)
+    # Simulating flipped state as back
+    card.view_card(is_front=False)
+    out, _ = capsys.readouterr()
+    assert out == f"{card.back}\n", "Should show front text on initial view."
 
 
 def test_mark(card: Card) -> None:
