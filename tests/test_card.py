@@ -6,13 +6,12 @@ from typing import TypedDict
 
 import pytest
 from prog_flash.card import Card
-from datetime import datetime, timezone
+from prog_flash.game import StudySessionController
 
 
 class CardDBRow(TypedDict):
     front: str
     back: str
-    updated_at: datetime
 
 
 @pytest.fixture
@@ -20,10 +19,14 @@ def card() -> Card:
     db_row: CardDBRow = {
         "front": "What is Python?",
         "back": "A programming language.",
-        "updated_at": datetime(2026, 6, 9, 12, 0, 0, tzinfo=timezone.utc),
     }
-    card = Card(**db_row)
-    return card
+    retrieved_card = Card(**db_row)
+    return retrieved_card
+
+
+@pytest.fixture
+def study_session() -> StudySessionController:
+    return StudySessionController()
 
 
 def test_card_initialization(card: Card) -> None:
@@ -32,28 +35,21 @@ def test_card_initialization(card: Card) -> None:
 
 
 def test_view_card(
-    card: Card, capsys: pytest.CaptureFixture, monkeypatch: pytest.MonkeyPatch
+    card: Card,
+    study_session: StudySessionController,
+    capsys: pytest.CaptureFixture,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.setattr("builtins.input", lambda: None)
 
-    card.dsp_side = "front"
-    card.view_card()
+    card.view_card(study_session.is_front())
     out, _ = capsys.readouterr()
     assert out == f"{card.front}\n", "Should show front text on initial view."
 
-    card.flip_card()
-    assert card.dsp_side == "back"
-
-    card.view_card()
+    study_session.flip_card()
+    card.view_card(study_session.is_front())
     out, _ = capsys.readouterr()
     assert out == f"{card.back}\n", "Should show back text after flipping."
-
-
-def test_flip_card(card: Card) -> None:
-    side = card.dsp_side
-    print(side)
-    card.flip_card()
-    assert card.dsp_side == "back"
 
 
 def test_mark(card: Card) -> None:

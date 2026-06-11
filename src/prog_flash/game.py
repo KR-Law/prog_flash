@@ -16,30 +16,13 @@
 # along with prog_flash.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from prog_flash.card import Card
-from prog_flash.game import StudySessionController
+class StudySessionController:
+    def __init__(self) -> None:
+        self.disp_front: bool = True
+        self.currentIndex: int = 0
 
+    def flip_card(self):
+        self.disp_front = not self.disp_front
 
-def process_card_command(
-    command: str, game_session: StudySessionController, card: Card
-):
-    match command:
-        case "f":
-            game_session.flip_card()
-        case "q":
-            print("Good job studying")
-            exit()
-
-
-def main() -> None:
-
-    game_session = StudySessionController()
-
-    card = Card("Front of card", "Back of Card")
-    print('Enter command type "help" for help.')
-    command: str = input()
-    process_card_command(command, game_session, card)
-
-
-if __name__ == "__main__":
-    main()
+    def is_front(self) -> bool:
+        return self.disp_front
