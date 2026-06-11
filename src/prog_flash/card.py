@@ -21,18 +21,23 @@ from typing import Optional
 
 
 class Card:
-    def __init__(self, front: str, back: str, updated_at: Optional[datetime] = None):
+    def __init__(
+        self, front: str, back: str, updated_at: Optional[datetime] = None
+    ) -> None:
         self.front: str = front
         self.back: str = back
         self.marked: bool = False
-        self.updated_at: datetime = updated_at or datetime.now(timezone.utc)
+        self.created_at: datetime = datetime.now(timezone.utc)
+        self.updated_at: datetime = updated_at or self.created_at
+        self.viewed_at: datetime = self.created_at
         ## Transient Functions
         self.dsp_side: str = "front"
 
     def _touch(self) -> None:
         self.updated_at = datetime.now(timezone.utc)
 
-    def view_card(self):
+    def view_card(self) -> None:
+        self.created_at = datetime.now(timezone.utc)
         print(self.front) if self.dsp_side == "front" else print(self.back)
 
     def flip_card(self) -> None:
