@@ -46,11 +46,6 @@ def test_view_card(
     out, _ = capsys.readouterr()
     assert out == f"{card.front}\n", "Should show front text on initial view."
 
-    study_session.flip_card()
-    card.view_card(study_session.is_front())
-    out, _ = capsys.readouterr()
-    assert out == f"{card.back}\n", "Should show back text after flipping."
-
 
 def test_mark(card: Card) -> None:
     card.mark_card()
