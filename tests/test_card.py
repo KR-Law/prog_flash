@@ -1,5 +1,4 @@
 # Copyright (C) 2026 K Law All rights reserved.
-# Copyright (c) 2026 Your Name/Organization. All rights reserved.
 # Licensed under the GPLv3.
 
 from typing import TypedDict
