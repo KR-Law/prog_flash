@@ -21,10 +21,7 @@ def test_card_initialization(card: Card) -> None:
 def test_view_card(
     card: Card,
     capsys: pytest.CaptureFixture,
-    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setattr("builtins.input", lambda: None)
-
     card.view_card(is_front=True)
     out, _ = capsys.readouterr()
     assert out == f"{card.front}\n", "Should show front text on initial view."
@@ -33,9 +30,7 @@ def test_view_card(
 def test_view_flipped_card(
     card: Card,
     capsys: pytest.CaptureFixture,
-    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setattr("builtins.input", lambda: None)
     # Simulating flipped state as back
     card.view_card(is_front=False)
     out, _ = capsys.readouterr()
