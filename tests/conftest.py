@@ -12,7 +12,7 @@ class CardDBRow(TypedDict):
     back: str
 
 
-@pytest.fixture(scope="module") # Changed scope for efficiency/consistency
+@pytest.fixture(scope="function")
 def card() -> Card:
     """A standardized fixture providing a default, marked-up test card."""
     db_row: CardDBRow = {
@@ -23,7 +23,7 @@ def card() -> Card:
     return retrieved_card
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def study_session() -> StudySessionController:
     """A standard fixture providing a fresh session controller instance."""
     return StudySessionController()
