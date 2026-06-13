@@ -3,6 +3,7 @@
 
 
 from datetime import datetime, timezone
+from turtle import back
 
 
 class Card:
@@ -17,14 +18,18 @@ class Card:
     def _touch(self) -> None:
         self.updated_at = datetime.now(timezone.utc)
 
-    def view_card(self, is_front) -> None:
-        print(self.front) if is_front else print(self.back)
+    def view_side(self, is_front) -> str | None:
+        """Get text for side to view"""
+        return_test: str | None = (self.front) if is_front else print(self.back)
+        return return_test
 
     def mark_card(self) -> None:
         self.marked = not self.marked
         self._touch()
 
-    def update_card(self, front: str, back: str) -> None:
-        self.front = front
-        self.back = back
+    def update_card(self, is_front: bool, update_string: str) -> None:
+        if is_front:
+            self.front = update_string
+        else:
+            self.back = update_string
         self._touch()
