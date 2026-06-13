@@ -20,8 +20,10 @@ class Card:
 
     def view_side(self, is_front) -> str | None:
         """Get text for side to view"""
-        return_test: str | None = (self.front) if is_front else print(self.back)
-        return return_test
+        if is_front:
+            return self.front
+        else:
+            return self.back
 
     def mark_card(self) -> None:
         self.marked = not self.marked
