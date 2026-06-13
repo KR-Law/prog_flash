@@ -1,38 +1,38 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: "[BUG] - Issue Summary"
+about: Report a bug found during testing or usage.
+title: "[BUG] - Concise Summary of Issue"
 labels: bug
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+---
+name: Bug report
+about: Report a bug found during testing or usage. Please provide as much detail as possible to help us reproduce and fix the issue quickly!
+title: "[BUG] - Concise Summary of Issue"
+labels: bug
+assignees: ''
+---
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+### Description
+*Briefly describe what is wrong.*
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+### Steps to Reproduce
+1. Navigate to [URL or component].
+2. Perform action A (e.g., click the 'Submit' button).
+3. Observe result B.
+*(Use numbered lists for clarity)*
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+### Expected Behavior
+What should happen when following these steps? (E.g., "The form should submit successfully and redirect to the dashboard.")
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+### Actual Behavior
+What actually happened? Include any error messages or unexpected results here.
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+### Environment Details
+* **OS:** e.g., Windows 10 / macOS Sonoma / Linux Ubuntu 24.04
+* **Browser/App Version:** e.g., Chrome v125 / App build 3.1.0
+* **Device:** (e.g., Desktop, iPhone 15)
 
-**Additional context**
-Add any other context about the problem here.
+---
