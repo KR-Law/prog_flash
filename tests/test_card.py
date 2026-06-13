@@ -30,17 +30,15 @@ def test_view_flipped_card(
     assert result == card.back, "Should show back text."
 
 
-def test_mark(card: Card) -> None:
+def test_mark_correct(card: Card) -> None:
     card.mark_correct()
     assert card.marked
-
-    card.mark_correct()
-    assert not card.marked
+    assert card.count == 1
 
 
 def test_update_front(card: Card) -> None:
     update_text = "Update Text for front"
-    card.update_card(is_front=True, update_string=update_text)
+    card.update_card(is_front=True, new_content=update_text)
     result: str | None = card.get_side(is_front=True)
     assert card.front == result
     assert card.back != result
@@ -48,7 +46,7 @@ def test_update_front(card: Card) -> None:
 
 def test_update_back(card: Card) -> None:
     update_text = "Update Text for back"
-    card.update_card(is_front=False, update_string=update_text)
+    card.update_card(is_front=False, new_content=update_text)
     result: str | None = card.get_side(is_front=False)
     assert card.back == result
     assert card.front != result
