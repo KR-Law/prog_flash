@@ -13,7 +13,7 @@ def test_flip_back_front_to_back(
     assert study_session.is_front()
     study_session.flip_card()
     assert not study_session.is_front()
-    result = card.view_side(study_session.is_front())
+    result = card.get_side(study_session.is_front())
     assert result == f"{card.back}"
 
 
@@ -24,5 +24,5 @@ def test_flip_back_to_front(
     assert not study_session.is_front()
     study_session.flip_card()
     assert study_session.is_front()
-    result = card.view_side(study_session.is_front())
+    result = card.get_side(study_session.is_front())
     assert result == f"{card.front}", "Should show back text after flipping."

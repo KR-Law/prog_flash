@@ -10,6 +10,7 @@ class Card:
         self.front: str = front
         self.back: str = back
         self.marked: bool = False
+        self.number_correct: int = 0
         self.created_at: datetime = datetime.now(timezone.utc)
         self.updated_at: datetime = self.created_at
         self.viewed_at: datetime = self.created_at
@@ -17,16 +18,20 @@ class Card:
     def _touch(self) -> None:
         self.updated_at = datetime.now(timezone.utc)
 
-    def view_side(self, is_front) -> str | None:
+    def get_side(self, is_front) -> str | None:
         """Get text for side to view"""
         if is_front:
             return self.front
         else:
             return self.back
 
+    def get_num_correct(self) -> int:
+        return self.number_correct
+    
     def mark_correct(self) -> None:
         """Mark card as correct"""
         self.marked = not self.marked
+        self.number_correct += 1
         self._touch()
 
     def update_card(self, is_front: bool, update_string: str) -> None:
