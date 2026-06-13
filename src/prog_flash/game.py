@@ -1,9 +1,17 @@
 # Copyright (C) 2026 K Law All rights reserved.
 # Licensed under the GPLv3.
 
+from enum import Enum, auto
 
-class StudySessionController:
+
+class ScreenState(Enum):
+    INITIAL_SCREEN = auto()
+    CARD_DISPLAY = auto()
+
+
+class GameLogicController:
     def __init__(self) -> None:
+        self.screen_state: ScreenState = ScreenState.INITIAL_SCREEN
         self.disp_front: bool = True
         self.currentIndex: int = 0
 

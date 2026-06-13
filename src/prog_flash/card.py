@@ -3,7 +3,6 @@
 
 
 from datetime import datetime, timezone
-import string
 
 
 class Card:

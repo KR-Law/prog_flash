@@ -7,7 +7,7 @@
 from typing import TypedDict
 import pytest
 from prog_flash.card import Card
-from prog_flash.game import StudySessionController
+from prog_flash.game import GameLogicController
 
 
 class CardDBRow(TypedDict):
@@ -15,18 +15,18 @@ class CardDBRow(TypedDict):
     back: str
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope='function')
 def card() -> Card:
     """A standardized fixture providing a default, marked-up test card."""
     db_row: CardDBRow = {
-        "front": "What is Python?",
-        "back": "A programming language.",
+        'front': 'What is Python?',
+        'back': 'A programming language.',
     }
     retrieved_card = Card(**db_row)
     return retrieved_card
 
 
-@pytest.fixture(scope="function")
-def study_session() -> StudySessionController:
+@pytest.fixture(scope='function')
+def study_session() -> GameLogicController:
     """A standard fixture providing a fresh session controller instance."""
-    return StudySessionController()
+    return GameLogicController()
