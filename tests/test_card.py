@@ -3,7 +3,6 @@
 
 from typing import TypedDict
 
-import pytest
 from prog_flash.card import Card
 
 
