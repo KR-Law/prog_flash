@@ -32,10 +32,10 @@ def test_view_flipped_card(
 
 
 def test_mark(card: Card) -> None:
-    card.mark_card()
+    card.mark_correct()
     assert card.marked
 
-    card.mark_card()
+    card.mark_correct()
     assert not card.marked
 
 
