@@ -9,14 +9,13 @@ from prog_flash.game import StudySessionController
 def test_flip_back_front_to_back(
     study_session: StudySessionController,
     card: Card,
-    capsys: pytest.CaptureFixture,
 ) -> None:
     assert study_session.is_front()
     study_session.flip_card()
     assert not study_session.is_front()
-    card.view_side(study_session.is_front())
-    out, _ = capsys.readouterr()
-    assert out == f"{card.back}\n", "Should show back text after flipping."
+    result = card.view_side(study_session.is_front())
+    print(f"Result: {result}")
+    assert result == f"{card.back}"
 
 
 def test_flip_back_to_front(
@@ -26,6 +25,5 @@ def test_flip_back_to_front(
     assert not study_session.is_front()
     study_session.flip_card()
     assert study_session.is_front()
-    card.view_side(study_session.is_front())
-    out, _ = capsys.readouterr()
-    assert out == f"{card.front}\n", "Should show back text after flipping."
+    result = card.view_side(study_session.is_front())
+    assert result == f"{card.front}", "Should show back text after flipping."
