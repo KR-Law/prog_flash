@@ -7,14 +7,6 @@ assignees: ''
 
 ---
 
----
-name: Bug report
-about: Report a bug found during testing or usage. Please provide as much detail as possible to help us reproduce and fix the issue quickly!
-title: "[BUG] - Concise Summary of Issue"
-labels: bug
-assignees: ''
----
-
 ### Description
 *Briefly describe what is wrong.*
 
