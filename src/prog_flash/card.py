@@ -25,11 +25,13 @@ class Card:
         else:
             return self.back
 
-    def mark_card(self) -> None:
+    def mark_correct(self) -> None:
+        """Mark card as correct"""
         self.marked = not self.marked
         self._touch()
 
     def update_card(self, is_front: bool, update_string: str) -> None:
+        """Update card depending on value of is_front if true update front else update back"""
         if is_front:
             self.front = update_string
         else:

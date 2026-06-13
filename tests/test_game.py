@@ -14,7 +14,6 @@ def test_flip_back_front_to_back(
     study_session.flip_card()
     assert not study_session.is_front()
     result = card.view_side(study_session.is_front())
-    print(f"Result: {result}")
     assert result == f"{card.back}"
 
 
