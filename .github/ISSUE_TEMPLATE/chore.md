@@ -1,5 +1,5 @@
 ---
-name: chore
+name: Chore
 about: Chore is a task to Improve code quality, simply logic, update packages, or
   restructure.
 title: "[CHORE] - Short, Actionable Title of Chore"
